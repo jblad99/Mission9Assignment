@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Mission9Assignment.Controllers
 {
+    // Declares page size, how to order books on each page
     public class HomeController : Controller
     {
         private IBookStoreRepository repo;

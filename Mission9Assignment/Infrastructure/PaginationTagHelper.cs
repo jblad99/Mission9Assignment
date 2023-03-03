@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace Mission9Assignment.Infrastructure
 {
+    // Creating pages for our website
     [HtmlTargetElement("div", Attributes = "page-blah")]
     public class PaginationTagHelper : TagHelper
     {
-        //Dynamically create the page links for us
 
         private IUrlHelperFactory uhf;
 
@@ -26,8 +26,6 @@ namespace Mission9Assignment.Infrastructure
         [ViewContext]
         [HtmlAttributeNotBound]
         public ViewContext vc { get; set; }
-
-        //Different than the View Context
         public PageInfo PageBlah { get; set; }
         public string PageAction { get; set; }
         public bool PageClassesEnabled { get; set; } = false;

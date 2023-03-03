@@ -10,6 +10,7 @@ namespace Mission9Assignment.Models
 {
     public partial class Book
     {
+        //Scaffolded code for the book class, contains book information
         [Key]
         [Required]
         public long BookId { get; set; }

@@ -1,5 +1,6 @@
 ﻿@{
 }
+<!--Landing page containing books on cards, bootstrap styling--> 
 
 @model BooksViewModel
 
@@ -28,26 +29,3 @@
      page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">
 </div>
-
-<br />
-
-<!--
-foreach (Book b in Model.Books)
-{
-    <ul>
-        <li>Book Author: b.Author</li>
-        <li>Book Publisher: b.Publisher</li>
-        <li>Book Isbn: b.Isbn</li>
-        <li>Book Classification: b.Classification</li>
-        <li>Book Category: b.Category</li>
-        <li>Book Page Count: b.PageCount</li>
-        <li>Book Price: b.Price</li>
-    </ul>
-
-    <br />
-}
-
-<div page-blah="Model.PageInfo" page-action="Index"></div>
-            }
-<h3>b.Title</h3>
--->

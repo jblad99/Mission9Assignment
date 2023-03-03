@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Mission9Assignment.Models
 {
+    //Scaffolded code for the bookstore
     public partial class BookStoreContext : DbContext
     {
         public BookStoreContext()
@@ -25,7 +26,6 @@ namespace Mission9Assignment.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlite("Data Source = Bookstore.sqlite");
             }
         }

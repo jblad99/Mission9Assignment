@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace Mission9Assignment
 {
+    //Josh Blad
+    //Assignment 9
+    //Section 4
     public class Startup
     {
         public IConfiguration Configuration { get; set; }

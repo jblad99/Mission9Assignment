@@ -7,6 +7,7 @@ namespace Mission9Assignment.Models.ViewModels
 {
     public class PageInfo
     {
+        //Variables for total number of books, books per page, and current page
         public int TotalNumBooks { get; set; }
         public int BooksPerPage { get; set; }
         public int CurrentPage { get; set; }
