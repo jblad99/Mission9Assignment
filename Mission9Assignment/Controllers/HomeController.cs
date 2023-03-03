@@ -25,7 +25,7 @@ namespace Mission9Assignment.Controllers
             var x = new BooksViewModel
             {
                 Books = repo.Books
-                .Where(p => p.Category == category || category == null)
+                .Where(b => b.Category == category || category == null)
                 .OrderBy(b => b.Author)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
