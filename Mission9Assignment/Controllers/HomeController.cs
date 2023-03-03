@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mission9Assignment.Models;
+using Mission9Assignment.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,29 +10,34 @@ using System.Threading.Tasks;
 
 namespace Mission9Assignment.Controllers
 {
+    // Declares page size, how to order books on each page
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IBookStoreRepository repo;
+        public HomeController(IBookStoreRepository temp)
         {
-            _logger = logger;
+            repo = temp;
         }
-
-        public IActionResult Index()
+        public IActionResult Index(int pageNum = 1)
         {
-            return View();
-        }
+            int pageSize = 5;
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+            var x = new BooksViewModel
+            {
+                Books = repo.Books
+                .OrderBy(b => b.Author)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                PageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+
+            return View(x);
         }
     }
 }
