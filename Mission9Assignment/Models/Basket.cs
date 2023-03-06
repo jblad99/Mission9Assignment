@@ -9,12 +9,11 @@ namespace Mission9Assignment.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
+        //public void AddItem(Book book, int qty)
         public void AddItem(Book book, int qty)
-        //public void AddItem(Book book, int qty, double price)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
-                //.Where(b => b.Book.Price == book.Price)
                 .FirstOrDefault();
 
             if (line == null)
@@ -23,7 +22,6 @@ namespace Mission9Assignment.Models
                 {
                     Book = book,
                     Quantity = qty
-                    //Price = price
                 });
             }
             else
@@ -34,8 +32,8 @@ namespace Mission9Assignment.Models
 
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Quantity * 25);
-            //double sum = Items.Sum(x => x.Quantity * x.Price);
+            //double sum = Items.Sum(x => x.Quantity * 25);
+            double sum = Items.Sum(x => x.Quantity * x.Book.Price);
 
 
             return sum;
@@ -47,6 +45,5 @@ namespace Mission9Assignment.Models
         public int LineID { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }
-        //public double Price { get; set; }
     }
 }
