@@ -3,14 +3,17 @@
 <!--Landing page containing books on cards, bootstrap styling-->
 
 @model BooksViewModel
-
 <h1>Hilton's Bookstore</h1>
+
+<!--Loads the book summary info onto this page-->
 
 @foreach (Book b in Model.Books)
 {
     <partial name="BookSummary" model="b" />
 
 }
+
+<!--Loads info such as paginationn-->
 <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">

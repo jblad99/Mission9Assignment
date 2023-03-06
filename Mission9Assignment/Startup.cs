@@ -54,7 +54,7 @@ namespace Mission9Assignment
             app.UseSession();
             app.UseRouting();
 
-
+            //Using endpoints to make better formatting for URLs
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("categorypage",

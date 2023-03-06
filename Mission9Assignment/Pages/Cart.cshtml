@@ -3,6 +3,13 @@
 @{
 }
 
+<!--Page for cart, references the basket item, displays table of the customer's cart-->
+
+<!--Bootstrap alerts added to page.-->
+<div class="alert alert-success" role="alert">
+    Book successfully added to cart!
+</div>
+
 <h2>Your cart</h2>
 
 <table class="table table-bordered table-striped">
@@ -19,12 +26,12 @@
     <tbody>
         @foreach (var i in Model.basket.Items)
         {
-        <tr>
-            <td>@i.Book.Title</td>
-            <td>@i.Quantity</td>
-            <td>@i.Book.Price</td>
-            <td>@(i.Quantity * i.Book.Price)</td>
-        </tr>
+            <tr>
+                <td>@i.Book.Title</td>
+                <td>@i.Quantity</td>
+                <td>@i.Book.Price</td>
+                <td>@(i.Quantity * i.Book.Price)</td>
+            </tr>
         }
     </tbody>
 

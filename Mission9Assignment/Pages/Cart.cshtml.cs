@@ -11,6 +11,8 @@ namespace Mission9Assignment.Pages
 {
     public class CartModel : PageModel
     {
+        // Processing for cart since the pages don't need to be a controller
+
         private IBookStoreRepository repo { get; set; }
         public CartModel(IBookStoreRepository temp)
         {

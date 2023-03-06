@@ -9,6 +9,7 @@ namespace Mission9Assignment.Components
 {
     public class CategoriesViewComponent : ViewComponent
     {
+        //Separate view for the categories component class
         private IBookStoreRepository repo { get; set; }
         public CategoriesViewComponent(IBookStoreRepository temp)
         {
@@ -19,6 +20,7 @@ namespace Mission9Assignment.Components
         {
             ViewBag.SelectedType = RouteData?.Values["category"];
 
+            //Filters by selected category
             var categories = repo.Books
                 .Select(x => x.Category)
                 .Distinct()
