@@ -1,30 +1,19 @@
 ﻿@{
 }
-<!--Landing page containing books on cards, bootstrap styling--> 
+<!--Landing page containing books on cards, bootstrap styling-->
 
 @model BooksViewModel
-
 <h1>Hilton's Bookstore</h1>
+
+<!--Loads the book summary info onto this page-->
 
 @foreach (Book b in Model.Books)
 {
-    <div class="card card-outline-primary m-1 p-1">
-        <div class="bg-faded p-1">
-            <h4>
-                @b.Title
-                <span class="badge badge-pill badge-primary" style="float:right">
-                    <small>@b.Price.ToString("c")</small>
-                </span>
-            </h4>
-        </div>
-        <div class="card-text p-1">@b.Author</div>
-        <div class="card-text p-1">@b.Publisher</div>
-        <div class="card-text p-1">@b.Isbn</div>
-        <div class="card-text p-1">@b.Classification</div>
-        <div class="card-text p-1">@b.Category</div>
-        <div class="card-text p-1">@b.PageCount</div>
-    </div>
+    <partial name="BookSummary" model="b" />
+
 }
+
+<!--Loads info such as paginationn-->
 <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">
